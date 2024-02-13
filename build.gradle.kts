@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig.*
 
 plugins {
-    kotlin("js") version "1.6.10"
+    kotlin("js") version "1.9.22"
 }
 
 group = "react-redux-todo-list-sample"
