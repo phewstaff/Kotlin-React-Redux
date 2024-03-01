@@ -8,7 +8,10 @@ import reactredux.entities.Todo
 import redux.RAction
 
 fun todos(state: Array<Todo> = emptyArray(), action: RAction): Array<Todo> = when (action) {
-    is AddTodo -> state + Todo(action.id, action.text, false)
+    is AddTodo -> {
+        val newId = if (state.isEmpty()) 1 else state.last().id + 1
+        state + Todo(newId, action.text, false)
+    }
     is ToggleTodo -> state.map {
         if (it.id == action.id) {
             it.copy(completed = !it.completed)

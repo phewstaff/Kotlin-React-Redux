@@ -2,11 +2,14 @@ package reactredux.reducers
 
 import reactredux.entities.Todo
 import reactredux.enums.VisibilityFilter
+import reactredux.utils.loadStateFromLocalStorage
 import redux.RAction
 
+val PersistedState = loadStateFromLocalStorage()
+
 data class State(
-    val todos: Array<Todo> = emptyArray(),
-    val visibilityFilter: VisibilityFilter = VisibilityFilter.SHOW_ALL
+        val todos: Array<Todo> = PersistedState,
+        val visibilityFilter: VisibilityFilter = VisibilityFilter.SHOW_ALL
 )
 
 fun rootReducer(
